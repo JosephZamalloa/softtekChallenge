@@ -1,3 +1,6 @@
+@import "../../styles/variables";
+@import "../../styles/mixins";
+
 .stepbar {
   display: flex;
   width: 100%;
@@ -40,5 +43,44 @@
     justify-content: center;
     align-items: center;
     margin: 0 16px;
+  }
+  &__step-mobile {
+    display: none;
+  }
+  @include respond-to(lg) {
+    justify-content: start;
+    padding: 16px 24px;
+    &__step {
+      display: none;
+    }
+    &__line {
+      display: none;
+    }
+    &__text {
+      margin: 0;
+      font-weight: 500;
+      color: black;
+    }
+    &__step-mobile {
+      display: flex;
+      flex-direction: row;
+      gap: 16px;
+    }
+    &__button-back {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid;
+      border-radius: 100px;
+      background-color: none;
+      color: #7981b2;
+      font-weight: 700;
+      font-size: 12px;
+      width: 24px;
+      height: 24px;
+      &:active {
+        color: #1b1c20;
+      }
+    }
   }
 }

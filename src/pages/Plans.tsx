@@ -17,7 +17,7 @@ const Plans = () => {
 
   return (
     <div className="plans-page">
-      <StepsBar currentStep={1} />
+      <StepsBar currentStep={1} backPage="/" />
       <SelectionUserContainer />
       <PlanCardContainer data={plans} />
     </div>
