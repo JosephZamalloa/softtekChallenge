@@ -5,7 +5,7 @@ import InfoContainer from "../containers/InfoContainer";
 const Resume = () => {
   return (
     <div>
-      <StepsBar currentStep={2} />
+      <StepsBar currentStep={2} backPage="/plans" />
       <InfoContainer />
     </div>
   );

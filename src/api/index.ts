@@ -12,3 +12,16 @@ export const fetchPlans = async () => {
     return [];
   }
 };
+
+export const fetchUser = async () => {
+  try {
+    const response = await fetch(`${API_URL}/user.json`);
+    if (!response.ok) {
+      throw new Error("Error al obtener usuario");
+    }
+    return await response.json();
+  } catch (error) {
+    console.error(error);
+    return [];
+  }
+};
