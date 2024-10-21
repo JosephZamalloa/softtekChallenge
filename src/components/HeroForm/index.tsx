@@ -1,12 +1,32 @@
 import "./styles.scss";
 import { useNavigate } from "react-router-dom";
 import familyImg from "../../assets/HeroImage.webp";
+import useUserStore from "../../stores/store";
+import { useState } from "react";
+import { fetchUser } from "../../api";
 
 const HeroForm = () => {
   const navigation = useNavigate();
-  const handleSubmit = (e: React.FormEvent) => {
+  const { userData, updateUserData } = useUserStore();
+  const [documentType, setDocumentType] = useState(userData.documentType);
+  const [documentNumber, setDocumentNumber] = useState(userData.documentNumber);
+  const [phone, setPhone] = useState(userData.phone);
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    navigation("/plans");
+    try {
+      const data = await fetchUser();
+      updateUserData({
+        documentType,
+        documentNumber,
+        phone,
+        userName: data.name,
+        userLastname: data.lastName,
+        birthday: data.birthDay,
+      });
+      navigation("/plans");
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
@@ -37,6 +57,8 @@ const HeroForm = () => {
             name="identification"
             id="identification"
             className="hero-form__select"
+            value={documentType}
+            onChange={(e) => setDocumentType(e.target.value)}
             required
           >
             <option value="dni">DNI</option>
@@ -49,6 +71,8 @@ const HeroForm = () => {
               type="number"
               className="hero-form__input"
               maxLength={10}
+              value={documentNumber}
+              onChange={(e) => setDocumentNumber(e.target.value)}
               required
             />
           </div>
@@ -60,6 +84,8 @@ const HeroForm = () => {
             type="number"
             className="hero-form__input "
             maxLength={12}
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
             required
           />
         </div>

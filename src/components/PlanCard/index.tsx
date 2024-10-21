@@ -1,5 +1,7 @@
+import { useNavigate } from "react-router-dom";
 import homeIcon from "../../assets/IcHomeLight.svg";
 import hospitalIcon from "../../assets/IcHospitalLight.svg";
+import useUserStore from "../../stores/store";
 
 import "./styles.scss";
 interface IPlanCard {
@@ -10,6 +12,12 @@ interface IPlanCard {
 }
 
 const PlanCard = ({ type, description, cost, recommended }: IPlanCard) => {
+  const navigate = useNavigate();
+  const { updateUserData } = useUserStore();
+  const handleOnClick = () => {
+    updateUserData({ selectedPlan: type, cost: cost });
+    navigate("/resume");
+  };
   return (
     <div className="plan-card">
       {recommended && (
@@ -23,17 +31,23 @@ const PlanCard = ({ type, description, cost, recommended }: IPlanCard) => {
           <span className="plan-card__line"></span>
         </div>
         <img
-          src={cost < 99 ? homeIcon : hospitalIcon}
+          src={cost < 70 ? homeIcon : hospitalIcon}
           alt="type-icon"
           className="plan-card__img"
         />
       </div>
       <ul className="plan-card__description-list">
-        {description.map((item) => {
-          return <li className="plan-card__description">{item}</li>;
+        {description.map((item, id) => {
+          return (
+            <li className="plan-card__description" key={id}>
+              {item}
+            </li>
+          );
         })}
       </ul>
-      <button className="plan-card__button">Seleccionar Plan</button>
+      <button className="plan-card__button" onClick={handleOnClick}>
+        Seleccionar Plan
+      </button>
     </div>
   );
 };

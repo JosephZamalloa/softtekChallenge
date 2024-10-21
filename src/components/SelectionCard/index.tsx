@@ -4,14 +4,25 @@ interface ISelectionCard {
   title: string;
   description: string;
   value: string;
+  onValueChange: (value: string) => void;
 }
-const PlanCard = ({ icon, title, description, value }: ISelectionCard) => {
+const PlanCard = ({
+  icon,
+  title,
+  description,
+  value,
+  onValueChange,
+}: ISelectionCard) => {
+  const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    onValueChange(e.target.value);
+  };
   return (
     <div className="selection-card">
       <input
         name="user-type"
         type="radio"
         className="selection-card__radius"
+        onChange={handleOnChange}
         value={value}
       />
       <div className="selection-card__content">
