@@ -1,0 +1,44 @@
+.stepbar {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  background-color: #edeffc;
+  padding: 16px 0;
+  &__step {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+  }
+  &__text {
+    margin: 0;
+    font-weight: 500;
+    color: #7981b2;
+  }
+  &__text--selected {
+    color: black;
+  }
+  &__number {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid;
+    border-radius: 100px;
+    background-color: none;
+    color: #7981b2;
+    font-weight: 700;
+    font-size: 12px;
+    width: 24px;
+    height: 24px;
+  }
+  &__number--selected {
+    background-color: #4f4fff;
+    color: white;
+  }
+  &__line {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 16px;
+  }
+}

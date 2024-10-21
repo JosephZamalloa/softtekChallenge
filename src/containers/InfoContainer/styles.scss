@@ -1,0 +1,19 @@
+@import "../../styles/variables";
+@import "../../styles/mixins";
+
+.info-container {
+  display: flex;
+  margin: auto;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  max-width: 928px;
+  margin-top: 64px;
+  @include respond-to(lg) {
+    &__back {
+      display: none;
+    }
+    margin-top: 0;
+    padding: 0 24px;
+  }
+}

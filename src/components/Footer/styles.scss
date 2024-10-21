@@ -1,0 +1,28 @@
+@import "../../styles/variables";
+@import "../../styles/mixins";
+
+.footer {
+  display: flex;
+  justify-content: center;
+  background-color: #03050f;
+  min-height: 106px;
+  &__content {
+    width: 100%;
+    max-width: 1220px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__paragraph {
+    color: white;
+    font-size: 14px;
+  }
+  @include respond-to(lg) {
+    padding: 2px 24px;
+    &__content {
+      padding: 33px 0;
+      flex-direction: column;
+      gap: 16px;
+    }
+  }
+}

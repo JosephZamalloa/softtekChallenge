@@ -1,0 +1,31 @@
+@import "../../styles/variables";
+@import "../../styles/mixins";
+
+.selection-container {
+  display: flex;
+  margin: auto;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 928px;
+  &__cards {
+    display: flex;
+    flex-direction: row;
+    gap: 32px;
+  }
+  &__back {
+    display: flex;
+    margin-top: 40px;
+    justify-content: start;
+    width: 100%;
+  }
+  @include respond-to(lg) {
+    padding: 0 24px;
+    &__back {
+      display: none;
+    }
+    &__cards {
+      flex-direction: column;
+    }
+  }
+}

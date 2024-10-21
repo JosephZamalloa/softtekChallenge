@@ -1,0 +1,93 @@
+@import "../../styles/variables";
+@import "../../styles/mixins";
+
+.plan-card {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  max-width: 288px;
+  min-width: 288px;
+  height: 687px;
+  overflow: hidden;
+  border-radius: 24px;
+  margin-top: 20px;
+  background-color: white;
+  scroll-snap-align: center;
+  filter: drop-shadow(0px 20px 20px rgba(174, 172, 243, 0.35));
+  padding: 68px 32px;
+  &__recommended {
+    position: absolute;
+    top: 40px;
+    left: 32px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    border-radius: 6px;
+    font-weight: 500;
+    font-size: 12px;
+    background-color: rgba(125, 240, 186, 1);
+    width: 122px;
+  }
+  &__recommended--active {
+    display: flex;
+  }
+  &__header {
+    display: flex;
+    border-bottom: 1px solid rgba(215, 219, 245, 1);
+    padding-bottom: 24px;
+    justify-content: center;
+    align-items: start;
+    gap: 16px;
+  }
+  &__title {
+    font-size: 24px;
+    margin: 0 0 24px 0;
+  }
+  &__text {
+    margin: 0;
+    font-size: 12px;
+    color: rgba(121, 129, 178, 1);
+    font-weight: 700;
+  }
+  &__cost {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 700;
+  }
+
+  &__description-list {
+    list-style: disc;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 224px;
+    font-size: 16px;
+  }
+  &__description {
+    width: 210px;
+    margin: 0px;
+    padding: 0px;
+    font-size: 16px;
+  }
+  &__button {
+    appearance: none;
+    cursor: pointer;
+    color: white;
+    font-weight: 700;
+    background-color: rgba(255, 28, 68, 1);
+    border: none;
+    border-radius: 32px;
+    width: fit-content;
+    padding: 14px 32px;
+    font-size: 18px;
+    margin-top: auto;
+    &:hover {
+      background-color: rgb(255, 84, 116);
+    }
+  }
+  @include respond-to(lg) {
+  }
+}

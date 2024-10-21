@@ -1,0 +1,18 @@
+@import "../../styles/variables";
+@import "../../styles/mixins";
+
+.card-container {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  margin: auto;
+
+  @include respond-to(lg) {
+    scroll-snap-align: center;
+    overflow: scroll;
+    scroll-snap-type: x mandatory;
+    justify-content: start;
+    padding: 40px 48px;
+    gap: 16px;
+  }
+}
